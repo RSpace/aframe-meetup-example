@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import Avatar from '../components/Avatar'
 import { circularPositionFromIndex } from '../utils/calculations'
+import { nextAvatarColor } from '../redux/actions'
 
 const boxSize = 0.5
 
@@ -14,10 +15,12 @@ class Avatars extends Component {
         {members.map((member, index) => {
           let position = circularPositionFromIndex(index, boxSize)
           return (
-            <Avatar key={member.id} id={member.id} name={member.name} photoUrl={member.photo_url}
+            <Avatar key={index} id={member.get('id')} name={member.get('name')} photoUrl={member.get('photo_url')}
+                    color={member.get('color')}
                     width={boxSize} height={boxSize} depth={boxSize}
                     position={position}
-                    index={index} />
+                    index={index}
+                    onClick={this.props.onAvatarClicked} />
           )
         })}
       </Entity>
@@ -28,13 +31,15 @@ class Avatars extends Component {
 // Which part of the Redux global state does our component want to receive as props?
 function mapStateToProps(state) {
   return {
-    members: state.members
+    members: state.get('members')
   }
 }
 
 // Which action creators does it want to receive by props?
 function mapDispatchToProps(dispatch) {
-  return {}
+  return {
+    onAvatarClicked: (memberId) => dispatch(nextAvatarColor(memberId))
+  }
 }
 
 export default connect(
