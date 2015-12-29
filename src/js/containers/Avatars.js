@@ -2,6 +2,7 @@ import {Entity} from 'aframe-react'
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import Avatar from '../components/Avatar'
+import { circularPositionFromIndex } from '../utils/calculations'
 
 const boxSize = 0.5
 
@@ -10,11 +11,13 @@ class Avatars extends Component {
     let members = this.props.members
     return (
       <Entity>
-        {members.map(member => {
+        {members.map((member, index) => {
+          let position = circularPositionFromIndex(index, boxSize)
           return (
             <Avatar key={member.id} id={member.id} name={member.name} photoUrl={member.photo_url}
                     width={boxSize} height={boxSize} depth={boxSize}
-                    position={{x: 0, y: 0, z: -2} } />
+                    position={position}
+                    index={index} />
           )
         })}
       </Entity>
