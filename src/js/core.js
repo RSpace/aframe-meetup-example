@@ -1,21 +1,28 @@
 import {Map} from 'immutable'
 
-export const INITIAL_STATE = Map()
+export const INITIAL_STATE = Map({vrMode: true})
+export const MEMBER_TYPES = ['hustler', 'hipster', 'hacker', '']
 
-const COLORS = ['ff8800', '32e600', 'b400e6', 'ffffff']
-export function setNextAvatarColor(membersState, memberId) {
+export const TYPE_TO_COLOR_MAP = {
+  '': 'ffffff',
+  'hustler': 'ff8800',
+  'hipster': '32e600',
+  'hacker': 'b400e6'
+}
 
-  function getNextColor(member) {
-    let colorIndex = COLORS.indexOf(member.get('color'));
-    colorIndex++;
-    if (colorIndex >= COLORS.length) {
-      colorIndex = 0;
+export function setNextMemberType(membersState, memberId) {
+
+  function getNextMemberType(member) {
+    let typeIndex = MEMBER_TYPES.indexOf(member.get('type'));
+    typeIndex++;
+    if (typeIndex >= MEMBER_TYPES.length) {
+      typeIndex = 0;
     }
-    return COLORS[colorIndex]
+    return MEMBER_TYPES[typeIndex]
   }
 
   return membersState.update(
     membersState.findIndex(member => { return member.get('id') === memberId }),
-    member => { return member.set('color', getNextColor(member)) }
+    member => { return member.set('type', getNextMemberType(member)) }
   )
 }

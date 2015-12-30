@@ -8,32 +8,44 @@ import Camera from '../components/Camera';
 import Cursor from '../components/Cursor';
 import Light from '../components/Light';
 import Sky from '../components/Sky';
-import Avatars from './Avatars'
-import Avatar from '../components/Avatar'
+import Members from './Members'
 
 
 export default class Root extends Component {
   render() {
     const { store } = this.props
-    return (
-      <Provider store={store}>
-        <div>
-          <Scene>
-            <Camera><Cursor/></Camera>
 
-            <Sky/>
+    if (store.getState().get('vrMode') ) {
+      return (
+        <Provider store={store}>
+          <div>
+            <Scene>
+              <Camera><Cursor/></Camera>
 
-            <Light type="ambient" color="#888"/>
-            <Light type="directional" intensity="0.5" position="-1 1 0"/>
-            <Light type="directional" intensity="1" position="1 1 0"/>
+              <Sky/>
 
-            <Avatars/>
-          </Scene>
+              <Light type="ambient" color="#888"/>
+              <Light type="directional" intensity="0.5" position="-1 1 0"/>
+              <Light type="directional" intensity="1" position="1 1 0"/>
 
-          <DevTools />
-        </div>
-      </Provider>
-    )
+              <Members/>
+            </Scene>
+
+            <DevTools />
+          </div>
+        </Provider>
+      )
+    } else {
+      return (
+        <Provider store={store}>
+          <div>
+            <Members/>
+            <DevTools />
+          </div>
+        </Provider>
+      )
+    }
+
   }
 }
 

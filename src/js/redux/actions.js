@@ -1,3 +1,3 @@
-export function nextAvatarColor(memberId) {
-  return { type: 'NEXT_COLOR', memberId }
+export function nextMemberType(memberId) {
+  return { type: 'NEXT_MEMBER_TYPE', memberId }
 }
