@@ -7,7 +7,7 @@ import { nextMemberType } from '../redux/actions'
 
 const boxSize = 0.5
 
-class Avatars extends Component {
+class Members extends Component {
   render () {
     let members = this.props.members
 
@@ -19,7 +19,7 @@ class Avatars extends Component {
       )
     } else {
       return (
-        <div className="avatars-component">
+        <div className="members-container">
           {members.map(this.renderMember.bind(this))}
         </div>
       )
@@ -59,4 +59,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Avatars)
+)(Members)

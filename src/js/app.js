@@ -10,7 +10,7 @@ getMembers().then(members => {
   const store = configureStore(initialState)
 
   render(
-    <Root store={store} />,
+    <Root store={store} vrMode={store.getState().get('vrMode')} />,
     document.getElementById('root')
   )
 }).catch(error => {

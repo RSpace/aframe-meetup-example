@@ -1,6 +1,6 @@
 import {Map} from 'immutable'
 
-export const INITIAL_STATE = Map({vrMode: true})
+export const INITIAL_STATE = Map({vrMode: false})
 export const MEMBER_TYPES = ['hustler', 'hipster', 'hacker', '']
 
 export const TYPE_TO_COLOR_MAP = {
@@ -25,4 +25,8 @@ export function setNextMemberType(membersState, memberId) {
     membersState.findIndex(member => { return member.get('id') === memberId }),
     member => { return member.set('type', getNextMemberType(member)) }
   )
+}
+
+export function toggleVRMode(state) {
+  return state.set('vrMode', !state.get('vrMode'))
 }
