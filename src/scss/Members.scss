@@ -1,0 +1,30 @@
+.member-component {
+  position: relative;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all .3s linear;
+  }
+
+  &__hipster:before {
+    background: rgba(50,230,0, 0.5);
+  }
+  &__hustler:before {
+    background: rgba(255,136,0, 0.5);
+  }
+  &__hacker:before {
+    background: rgba(180,0,230, 0.5);
+  }
+
+}
