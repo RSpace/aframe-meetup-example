@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import {Entity} from 'aframe-react'
 import { disableVRMode, enableVRMode } from '../redux/actions'
 
+const styles = require('../../scss/VRModeSwitcher.scss')
+
 class VRModeSwitcher extends Component {
   render () {
     if (this.props.vrMode) {
