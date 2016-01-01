@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Boilerplate for using A-Frame (VR) with React.",
   "dependencies": {
-    "aframe-core": "0.1.0",
-    "aframe-react": "^1.0.0",
+    "aframe-core": "file:../aframe-core",
+    "aframe-react": "1.0.2",
     "babel-polyfill": "^6.3.14",
     "fetch-jsonp": "1.0.0",
     "immutable": "^3.7.6",
@@ -43,7 +43,6 @@
   },
   "homepage": "https://github.com/ngokevin/aframe-react-boilerplate#readme",
   "devDependencies": {
-    "babel": "^6.3.13",
     "babel-core": "^6.3.15",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
