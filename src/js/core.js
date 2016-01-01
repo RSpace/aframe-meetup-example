@@ -27,6 +27,10 @@ export function setNextMemberType(membersState, memberId) {
   )
 }
 
-export function toggleVRMode(state) {
-  return state.set('vrMode', !state.get('vrMode'))
+export function enableVRMode(state) {
+  return state.set('vrMode', true)
+}
+
+export function disableVRMode(state) {
+  return state.set('vrMode', false)
 }

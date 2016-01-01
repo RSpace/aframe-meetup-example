@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {Entity} from 'aframe-react'
-import { toggleVRMode } from '../redux/actions'
+import { disableVRMode, enableVRMode } from '../redux/actions'
 
 class VRModeSwitcher extends Component {
   render () {
@@ -10,12 +10,12 @@ class VRModeSwitcher extends Component {
         <Entity geometry={{'primitive': 'sphere', radius: 1}}
                 material={{color: 'red'}}
                 position={'0 -2 0'}
-                onClick={this.props.onSwitcherClicked} />
+                onClick={this.props.disableVRMode} />
       )
     } else {
       return (
         <div className="vrModeSwitcher-container">
-          <button onClick={this.props.onSwitcherClicked}>Enter virtual reality mode</button>
+          <button onClick={this.props.enableVRMode}>Enter virtual reality mode</button>
         </div>
       )
     }
@@ -32,7 +32,8 @@ function mapStateToProps(state) {
 // Which action creators does it want to receive by props?
 function mapDispatchToProps(dispatch) {
   return {
-    onSwitcherClicked: () => dispatch(toggleVRMode())
+    disableVRMode: () => dispatch(disableVRMode()),
+    enableVRMode: () => dispatch(enableVRMode())
   }
 }
 
