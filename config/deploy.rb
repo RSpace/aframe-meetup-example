@@ -42,21 +42,11 @@ set :tmp_dir, "/home/www-data/tmp"
 
 namespace :deploy do
 
-  #task :precompile do
-  #  Dir.chdir fetch(:rsync_stage) do
-  #    system "npm", "run build -- --production"
-  #  end
-  #end
-
-  # after "rsync:stage", "precompile"
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
+  task :build_and_upload do
+    puts run_locally "npm run build -- --production"
+    puts run_locally "scp ./build www-data@immersionftw.com:#{fetch(:release_path)}"
   end
+
+  after :finishing, :build_and_upload
 
 end
