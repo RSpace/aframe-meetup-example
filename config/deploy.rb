@@ -43,8 +43,10 @@ set :tmp_dir, "/home/www-data/tmp"
 namespace :deploy do
 
   task :build_and_upload do
-    puts run_locally "npm run build -- --production"
-    puts run_locally "scp ./build www-data@immersionftw.com:#{fetch(:release_path)}"
+    run_locally do
+      system("npm run build -- --production")
+      system("scp -r #{Dir.pwd}/build www-data@immersionftw.com:#{fetch(:release_path)}")
+    end
   end
 
   after :finishing, :build_and_upload
