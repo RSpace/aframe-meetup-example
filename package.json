@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "An example of using A-Frame with React and Redux.",
   "dependencies": {
-    "aframe-core": "file:../aframe-core",
+    "aframe-core": "git://github.com/aframevr/aframe-core.git#dev",
     "aframe-react": "1.0.2",
     "babel-polyfill": "^6.3.14",
     "classnames": "2.2.1",
