@@ -16,7 +16,7 @@ class Wrapper extends Component {
     if (vrMode) {
       return (
         <div>
-          <Scene append-canvas="true">
+          <Scene>
             <Camera><Cursor/></Camera>
             <Members/>
             <VRModeSwitcher/>
