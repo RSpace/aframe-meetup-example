@@ -1,7 +1,7 @@
 {
-  "name": "aframe-react-boilerplate",
+  "name": "Meetup VR",
   "version": "1.0.0",
-  "description": "Boilerplate for using A-Frame (VR) with React.",
+  "description": "An example of using A-Frame with React and Redux.",
   "dependencies": {
     "aframe-core": "file:../aframe-core",
     "aframe-react": "1.0.2",
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngokevin/aframe-react-boilerplate.git"
+    "url": "git+https://github.com/rspace/aframe-meetup-example.git"
   },
   "keywords": [
     "aframe",
@@ -39,12 +39,12 @@
     "mozvr",
     "webvr"
   ],
-  "author": "Kevin Ngo <kngo@mozilla.com>",
+  "author": "Casper Fabricius <me@casperfabricius.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ngokevin/aframe-react-boilerplate/issues"
+    "url": "https://github.com/rspace/aframe-meetup-example/issues"
   },
-  "homepage": "https://github.com/ngokevin/aframe-react-boilerplate#readme",
+  "homepage": "https://github.com/rspace/aframe-meetup-example#readme",
   "devDependencies": {
     "babel-core": "^6.3.15",
     "babel-loader": "^6.2.0",
