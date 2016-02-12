@@ -2,7 +2,7 @@ import fetchJsonp from 'fetch-jsonp'
 import {List, Map} from 'immutable'
 
 const API_ROOT = 'https://api.meetup.com'
-const GET_MEMBERS_URL = API_ROOT + '/2/rsvps?offset=0&format=json&event_id=226573940&photo-host=public&page=100&fields=&order=event&desc=false&sig_id=45273132&sig=22e11982b405a952554ee47b9b55bac1d7eb0cd9'
+const GET_MEMBERS_URL = API_ROOT + '/2/rsvps?offset=0&format=json&event_id=228082564&photo-host=public&page=100&fields=&order=event&desc=false&sig_id=45273132&sig=a75637600bca84224283fb5dc2afcb73bb5f8bee'
 
 export function getMembers() {
   return fetchJsonp(GET_MEMBERS_URL)
