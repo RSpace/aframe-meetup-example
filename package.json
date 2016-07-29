@@ -23,8 +23,8 @@
     "ghpages": "npm run preghpages && ghpages -p gh-pages",
     "gh-pages": "npm run ghpages",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "cd src && python -m SimpleHTTPServer 5555",
-    "serve-js": "webpack-dev-server --content-base src --progress --watch --history-api-fallback --inline --hot"
+    "serve": "cd src && python -m SimpleHTTPServer 8081",
+    "serve-js": "webpack-dev-server --content-base src --progress --watch --history-api-fallback --inline --hot --port 8082"
   },
   "repository": {
     "type": "git",
