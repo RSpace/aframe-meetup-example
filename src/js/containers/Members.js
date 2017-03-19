@@ -16,6 +16,13 @@ class Members extends Component {
       return (
         <Entity>
           {members.map(this.renderMember.bind(this))}
+          <a-animation attribute="rotation"
+            dur="360000"
+            fill="forwards"
+            to="0 360 0"
+            repeat="indefinite"
+            easing="linear">
+          </a-animation>
         </Entity>
       )
     } else {
