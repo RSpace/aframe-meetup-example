@@ -9,7 +9,7 @@ var ENTRY_POINTS = [
 ];
 
 var JS_LOADERS = [
-  'babel?cacheDirectory&presets[]=react,presets[]=es2015,presets[]=stage-0'
+  'babel-loader?cacheDirectory&presets[]=react,presets[]=es2015,presets[]=stage-0'
 ];
 
 var PLUGINS = [];
@@ -30,8 +30,7 @@ module.exports = {
   output: {
     // Bundle will be served at /bundle.js locally.
     filename: 'bundle.js',
-    // Bundle will be built at ./src/media/js.
-    path: './build',
+    path: path.resolve(__dirname, './build'),
     publicPath: '/',
   },
   module: {
@@ -52,21 +51,10 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass'
+        loader: 'style-loader!css-loader!sass-loader'
       }
     ],
   },
   plugins: PLUGINS,
-  resolve: {
-    extensions: ['', '.js', '.json'],
-    fallback: path.join(__dirname, 'node_modules'),
-    modulesDirectories: [
-      'src/js',
-      'node_modules',
-    ]
-  },
-  resolveLoader: {
-    fallback: [path.join(__dirname, 'node_modules')]
-  },
   devtool: 'source-map'
 };

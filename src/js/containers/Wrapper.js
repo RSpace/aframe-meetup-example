@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 //import DevTools from './DevTools'
-import 'aframe-core'
+import 'aframe'
 import {Animation, Entity, Scene} from 'aframe-react'
 import { connect } from 'react-redux'
 
